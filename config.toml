@@ -134,7 +134,7 @@ members = ["小队第一个账号的QQ号", "小队第二个账号的QQ号"]
 enable = true
 
 # 账号名称，仅用于区分不同账号
-name = "默认账号名-1"
+name = "824433221"
 
 # 登录模式
 # by_hand：      手动登录，在skey无效的情况下会弹出活动界面，自行登录后将cookie中uin和skey提取到下面的配置处
@@ -257,7 +257,7 @@ get_wegame_guoqing = true
 # 是否领取史诗之路来袭活动合集活动
 get_dnf_1224 = true
 # 是否领取DNF闪光杯第三期活动
-get_dnf_shanguang = true
+get_dnf_shanguang = false
 # 是否领取qq视频活动
 get_qq_video = true
 # 是否领取10月女法师三觉活动

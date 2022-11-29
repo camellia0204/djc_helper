@@ -37,7 +37,7 @@ allow_only_one_instance = true
 try_auto_bind_new_activity = true
 # 是否强制与道聚城的绑定角色同步，也就是说当活动角色与道聚城绑定角色不一致时，将强制修改为道聚城绑定的角色。
 # 开启后可以实现在道聚城修改绑定角色后，所有其他自动绑定的活动也将同步修改为该角色
-force_sync_bind_with_djc = true
+force_sync_bind_with_djc = false
 
 # 提前多少天提示付费过期
 notify_pay_expired_in_days = 7
@@ -257,7 +257,7 @@ get_wegame_guoqing = true
 # 是否领取史诗之路来袭活动合集活动
 get_dnf_1224 = true
 # 是否领取DNF闪光杯第三期活动
-get_dnf_shanguang = false
+get_dnf_shanguang = true
 # 是否领取qq视频活动
 get_qq_video = true
 # 是否领取10月女法师三觉活动

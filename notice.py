@@ -77,21 +77,37 @@ class Notice(ConfigInterface):
 
 
 class NoticeManager:
-    def __init__(self, load_from_remote=True):
+    current_notices_file_name = "notices.txt"
+    archived_notices_file_name = "notice_archived.txt"
+
+    def __init__(self, load_from_remote=True, download_only_if_not_exists=False):
         self.notices: List[Notice] = []
 
-        self.file_name = "notices.txt"
-        self.cache_path = f"{downloads_dir}/{self.file_name}"
-        self.save_path = f"utils/{self.file_name}"
+        self.file_name = self.current_notices_file_name
 
-        self.load(load_from_remote)
+        self.load(load_from_remote, download_only_if_not_exists)
+
+    @property
+    def cache_path(self) -> str:
+        return f"{downloads_dir}/{self.file_name}"
+
+    @property
+    def save_path(self) -> str:
+        return f"utils/{self.file_name}"
 
     @try_except()
-    def load(self, from_remote=True):
+    def load(self, from_remote=True, download_only_if_not_exists=False):
         if from_remote:
             path = self.cache_path
-            # 下载最新公告
-            self.download_latest_notices()
+
+            need_download = True
+            if download_only_if_not_exists and os.path.exists(path):
+                # 设置了仅当本地文件不存在时才下载
+                need_download = False
+
+            if need_download:
+                # 下载最新公告
+                self.download_latest_notices()
         else:
             path = self.save_path
 
